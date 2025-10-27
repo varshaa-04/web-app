@@ -8,6 +8,7 @@ resource "aws_ecs_task_definition" "app_task" {
   requires_compatibilities = ["FARGATE"]
   cpu                      = "256"
   memory                   = "512"
+  execution_role_arn       = "arn:aws:iam::688412148742:role/ecsTaskExecutionRole"
   
 
   container_definitions    = jsonencode([{
