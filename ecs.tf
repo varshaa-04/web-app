@@ -6,9 +6,10 @@ resource "aws_ecs_task_definition" "app_task" {
   family                   = "myapp-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
+execution_role_arn = "arn:aws:iam::688412148742:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS"
   cpu                      = "256"
   memory                   = "512"
-  execution_role_arn = "arn:aws:iam::688412148742:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS"
+  
 
   container_definitions    = jsonencode([{
     name      = "myapp"
