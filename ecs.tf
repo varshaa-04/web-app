@@ -6,7 +6,6 @@ resource "aws_ecs_task_definition" "app_task" {
   family                   = "myapp-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-execution_role_arn = "arn:aws:iam::688412148742:role/ecsTaskExecutionRole"
   cpu                      = "256"
   memory                   = "512"
   
@@ -29,7 +28,8 @@ resource "aws_ecs_service" "app_service" {
   desired_count   = 1
   launch_type     = "FARGATE"
   network_configuration {
-    subnets         = ["subnet-xxxxxx"] # Replace with actual subnet IDs
+    subnets         = ["subnet-0ec4b7b9c1a047f37"] # Replace with actual subnet IDs
     assign_public_ip = true
+    security_groups  = ["sg-01be0a13917110067"]
   }
 }
