@@ -32,6 +32,14 @@ aws-devops-project/
 └── .github/
     └── workflows/
         └── deploy.yml
+
+
+
+✅ Built and pushed your Docker image to Amazon ECR
+
+✅ Manually pulled and ran the container on an EC2 instance
+
+✅ Used GitHub Actions to automate the deployment via SSH
 1. Clone the Repository
 bash
 git clone https://github.com/varshaa-04/web-app.git
