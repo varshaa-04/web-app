@@ -47,6 +47,9 @@
      - The app listens on localhost:5000 by default (app.run host=0.0.0.0 in the repo makes it accessible to container/VM).
   4. Verify:
      - Open http://127.0.0.1:5000 or http://localhost:5000 in a browser and you should see "Hello from AWS DevOps Project using EC2 and GitHub Actions!"
+       
+     <img width="1919" height="550" alt="Screenshot 2025-10-26 204251" src="https://github.com/user-attachments/assets/ba3b0adb-87a9-42f2-a55d-ccb39444516f" />
+
 
 ---------------------------------------------------------------------------------------------
 
@@ -92,6 +95,9 @@
   4. Push:
      - docker push <your-ecr-uri>:latest
 - Terraform approach: Terraform can create the repo and supply its URI as an output.
+  
+- <img width="1902" height="678" alt="Screenshot 2025-10-28 201628" src="https://github.com/user-attachments/assets/6959ba75-c946-4a81-84b8-84a85f9be5c8" />
+
 
 -------------------------------------------------------------------------------------------
 
@@ -108,6 +114,9 @@
   2. terraform init — initializes the working directory (downloads providers).
   3. terraform plan — shows the actions Terraform will take.
   4. terraform apply — create resources (you can use -auto-approve to skip confirmation).
+ 
+    <img width="1904" height="733" alt="Screenshot 2025-10-28 193224" src="https://github.com/user-attachments/assets/7b3c6d33-e081-4931-9055-1229e90f17ff" />
+
 
 - Important Terraform notes:
 
@@ -119,6 +128,11 @@
 ------------------------------------------------------------------------------------------
 
 ** EC2 instance setup details**
+
+<img width="1918" height="434" alt="Screenshot 2025-10-25 203155" src="https://github.com/user-attachments/assets/05d950db-7ac4-428f-b6b7-37c6badbfa1f" />
+
+
+
 - Two ways to run container on EC2:
   - Manually SSH and pull/run container (good for learning).
   - Use a startup script (user_data) that runs at boot to pull and run the container automatically (good for automation).
@@ -154,6 +168,10 @@
   - Build Docker image: docker build -t <repo>:${{ github.sha }}
   - Tag and push image to ECR
   - SSH to EC2: use appleboy/ssh-action or run an ssh command to pull the new image and restart the container
+ 
+    <img width="1919" height="875" alt="Screenshot 2025-10-28 201842" src="https://github.com/user-attachments/assets/522f073e-9a89-48ca-9123-37710e60d6a6" />
+
+
 - Secrets you should add to GitHub repository settings:
   - AWS_ACCESS_KEY_ID — key with permission to push to ECR and (if you want Terraform to run from GitHub Actions) manage infra.
   - AWS_SECRET_ACCESS_KEY
